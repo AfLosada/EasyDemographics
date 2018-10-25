@@ -1,0 +1,1 @@
+{"images": [{"classifiers": [{"classifier_id": "DefaultCustomModel_539670124", "name": "Default Custom Model", "classes": [{"class": "2", "score": 0.816}]}], "image": "critica.jpg"}], "images_processed": 1, "custom_classes": 2}

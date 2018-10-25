@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Easy Demographics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/temp.css') }}">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+      <h1 class="logo" align="center">Easy Demographics</h1>
+      <div class="container">
+    </header>
+    <header>
+        <strong><nav>
+          <div class="container">
+          <ul class="menu">
+            <li><a href="{{ url_for('home') }}">Página Principal</a></li>
+            <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
+            <li><a href="{{ url_for('info') }}">Procese un video</a></li>
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+{"images": [{"faces": [{"age": {"min": 20, "max": 23, "score": 0.9950233}, "face_location": {"height": 142, "width": 124, "left": 635, "top": 160}, "gender": {"gender": "MALE", "score": 0.99758327}}], "image": "./Uploads/video21/2.jpg"}], "images_processed": 1}

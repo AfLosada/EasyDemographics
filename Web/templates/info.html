@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Easy Demographics</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/static/img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/static/img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="/static/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="/static/css/style.css">
+<link rel="stylesheet" type="text/css" href="/static/css/nivo-lightbox/nivo-lightbox.css">
+<link rel="stylesheet" type="text/css" href="/static/css/nivo-lightbox/default.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand page-scroll" href="/">Easy Demographics</a> </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/#about" class="page-scroll">Conócenos</a></li>
+        <li><a href="procesar">Procesa un video</a></li>
+        <!--<li><a href="#portfolio" class="page-scroll">Galeria</a></li> -->
+        <li><a href="/#team" class="page-scroll">Azerty AI</a></li>
+        <li><a href="/#call" class="page-scroll">Contacto</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+<!-- Header -->
+<header id="header">
+  <div class="intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="intro-text">
+            <h1></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<hr>
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 ">
+        <!--En esta columna va el video que se va a agregar-->
+        <div class="about-img"><img src= "D:/Nonono/Web/Uploads/ideo21/" class="img-responsive" alt="">     </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>Estadísticas del video</h2>
+          <hr>
+          <h3>El numero de personas fue: {{ numeroPersonas }}</h3>
+        </div>
+      </div>
+<html>
+<head>
+<title>Upload</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+<!--Acá va todo lo que tiene que ver con poner los botones bonitos-->
+
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+    <input id="file-picker" type="file" name="file" accept="/*" multiple>
+    <div id="msg"></div>
+    <input class="btn btn-custom btn-lg page-scroll" type="submit" disabled value="Upload!" id="upload-button">
+</form>
+<div>
+    <head>
+        <meta charset="UTF-8">
+        <title>Información Procesada</title>
+    </head>
+    <ul>
+        <!-- Aqui va a ir toda la información relacionada al numero de mujeres y al numero de hombres. Además se va a mostrar el video que se proceso-->
+        {% for item in datos%}
+
+        {% endfor %}
+
+    </ul>
+</div>
+</body>
+<script>
+    $("#file-picker").change(function(){
+        var input = document.getElementById('file-picker');
+        for (var i=0; i<input.files.length; i++)
+        {
+        //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+            if ((ext == 'jpg') || (ext == 'png') || (ext == 'mp4'))
+            {
+                $("#msg").text("Files are supported");
+                $("#upload-button").removeAttr('disabled');
+            }
+            else
+            {
+                $("#msg").text("Files are NOT supported")
+                document.getElementById("file-picker").value ="";
+            }
+        }
+    } );
+</script>
+</html>
